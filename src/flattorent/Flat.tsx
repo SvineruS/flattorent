@@ -35,7 +35,7 @@ function Photos() {
 
 function Map({address}: { address: string }) {
     const src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyALSvrD3gdxJ9Rh738LTVhSYD9vMekd0Qk&q=${address}&zoom=15`
-    return <iframe src={src} width="100%" height="400"></iframe>
+    return <iframe title={"map"} src={src} width="100%" height="400"></iframe>
 }
 
 export default Flat;
