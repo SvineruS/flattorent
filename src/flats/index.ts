@@ -1,3 +1,5 @@
+import flatsJson from "./FLATS.json";
+
 export interface IFlat {
     id: number;
     address: string;
@@ -34,9 +36,8 @@ export class FlatItem implements IFlat {
 export const flats: {[flatId: number]: FlatItem} = parseFlats();
 
 function parseFlats() {
-    const flatsJson = require("./FLATS.json") as IFlat[];
     const result: {[flatId: number]: FlatItem} = {};
-    for (const flat of flatsJson)
-        flatsJson[flat.id] = new FlatItem(flat);
+    for (const flat of flatsJson as IFlat[])
+        result[flat.id] = new FlatItem(flat);
     return result;
 }
