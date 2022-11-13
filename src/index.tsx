@@ -1,19 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {flats} from "./flats";
+import {Root, FlatList, Flat, Rules} from './flattorent';
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Root/>,
+        errorElement: <FlatList />,
+        children: [
+            { index: true, element: <FlatList /> },
+            {
+                path: "flat/:flatId",
+                element: <Flat/>,
+                loader: ({params}) => ({flat: flats[+(params?.flatId || 0)]})
+            },
+            {
+                path: "rules",
+                element: <Rules/>,
+            },
+        ]
+    },
+
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+      <RouterProvider router={router}/>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
