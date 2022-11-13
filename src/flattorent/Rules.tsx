@@ -9,7 +9,7 @@ function Rules() {
 
           <div className="row">
               <div className="col-md-3 d-flex justify-content-center align-items-center">
-                  <img className="rounded-circle w-100 my-2" src="/images/roman.jpg" alt=""
+                  <img className="rounded-circle w-100 my-2" src={`${process.env.PUBLIC_URL}/images/roman.jpg`} alt=""
                        style={{maxWidth: "200px"}}/>
               </div>
               <div className="col">
