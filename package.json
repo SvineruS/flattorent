@@ -2,6 +2,7 @@
   "name": "flattorent",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://svinerus.github.io/flattorent",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -10,6 +11,7 @@
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-image-gallery": "^1.2.11",
@@ -20,8 +22,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build_": "react-scripts build",
-    "build": "node ./src/flats/parseImages.js && npm run build_"
+    "build": "react-scripts build",
+    "predeploy": "node ./src/flats/parseImages.js && npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
