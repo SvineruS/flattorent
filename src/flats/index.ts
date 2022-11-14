@@ -1,6 +1,7 @@
 import flatsJson from "./FLATS.json";
+import flatsImgJson from "./FLATS_IMGS.json";
 
-export interface IFlat {
+interface IFlat {
     id: number;
     address: string;
     rooms: number;
@@ -15,13 +16,15 @@ export class FlatItem implements IFlat {
     rooms: number;
     price: number;
     description?: string;
+    imgs: string[];
 
-    constructor(iflat: IFlat) {
+    constructor(iflat: IFlat, imgs: string[]) {
         this.id = iflat.id;
         this.address = iflat.address;
         this.rooms = iflat.rooms;
         this.price = iflat.price;
         this.description = iflat.description;
+        this.imgs = imgs;
     }
 
     public roomsText(): string {
@@ -36,8 +39,11 @@ export class FlatItem implements IFlat {
 export const flats: {[flatId: number]: FlatItem} = parseFlats();
 
 function parseFlats() {
+    const flatsImgJson_ = flatsImgJson as {[flatId: number]: string[]};
     const result: {[flatId: number]: FlatItem} = {};
-    for (const flat of flatsJson as IFlat[])
-        result[flat.id] = new FlatItem(flat);
+    for (const flat of flatsJson as IFlat[]) {
+        const imgs = flatsImgJson_[flat.id];
+        result[flat.id] = new FlatItem(flat, imgs);
+    }
     return result;
 }
