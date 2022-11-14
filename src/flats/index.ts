@@ -28,11 +28,11 @@ export class FlatItem implements IFlat {
     }
 
     public roomsText(): string {
-        return this.rooms === 1 ? "Однокімнатна" : this.rooms + "-кімнатна";
+        return this.rooms === 1 ? "1 кімната" : this.rooms + " кімнати";
     }
 
     public priceText(): string {
-        return this.price === 1 ? "Договірна" : this.price + " грн";
+        return this.price === 1 ? "Ціна договірна" : this.price + " грн";
     }
 }
 
