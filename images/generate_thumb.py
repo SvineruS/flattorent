@@ -15,9 +15,9 @@ def thumb(path):
     img = Image.open(path / '1.jpg')
     img.thumbnail((width, width))
 
-    height = img.size[1]
+    new_width, height = img.size
     offset = (height - ratio_height) / 2
-    resize = (0, offset, width, height - offset)
+    resize = (0, offset, min(width, new_width), height - offset)
     img = img.crop(resize)
 
     img.save(str(path / 'thumb.jpg'))
