@@ -7,6 +7,8 @@ interface IFlat {
     rooms: number;
     price: number;
     description?: string;
+    cond?: boolean
+    disabled?: boolean;
 }
 
 
@@ -17,6 +19,7 @@ export class FlatItem implements IFlat {
     price: number;
     description?: string;
     imgs: string[];
+    cond: boolean
 
     constructor(iflat: IFlat, imgs: string[]) {
         this.id = iflat.id;
@@ -24,6 +27,7 @@ export class FlatItem implements IFlat {
         this.rooms = iflat.rooms;
         this.price = iflat.price;
         this.description = iflat.description;
+        this.cond = iflat.cond || false;
         this.imgs = imgs;
     }
 
@@ -42,6 +46,7 @@ function parseFlats() {
     const flatsImgJson_ = flatsImgJson as {[flatId: number]: string[]};
     const result: {[flatId: number]: FlatItem} = {};
     for (const flat of flatsJson as IFlat[]) {
+        if (flat.disabled) continue;
         const imgs = flatsImgJson_[flat.id];
         result[flat.id] = new FlatItem(flat, imgs);
     }
