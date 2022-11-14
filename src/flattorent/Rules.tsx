@@ -29,7 +29,7 @@ function Rules() {
           </div>
 
 
-          <h2 className="text-center mt-5">Информация</h2>
+          <h2 className="text-center mt-5">Информація</h2>
           <div className="row">
               <div className="col-lg-6">
                   <ul>
