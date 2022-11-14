@@ -13,9 +13,11 @@ ratio_height = width / 16 * 9
 
 def thumb(path):
     img = Image.open(path / '1.jpg')
-    img.thumbnail((width, width))
+    img.thumbnail((width, 100000))
 
     new_width, height = img.size
+    print(width, new_width, ratio_height, height)
+    print(new_width, height)
     offset = (height - ratio_height) / 2
     resize = (0, offset, min(width, new_width), height - offset)
     img = img.crop(resize)
