@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/flattorent/static/css/main.f0c64c66.css",
-    "main.js": "/flattorent/static/js/main.ac88e92d.js",
+    "main.js": "/flattorent/static/js/main.69093ccd.js",
     "index.html": "/flattorent/index.html",
     "main.f0c64c66.css.map": "/flattorent/static/css/main.f0c64c66.css.map",
-    "main.ac88e92d.js.map": "/flattorent/static/js/main.ac88e92d.js.map"
+    "main.69093ccd.js.map": "/flattorent/static/js/main.69093ccd.js.map"
   },
   "entrypoints": [
     "static/css/main.f0c64c66.css",
-    "static/js/main.ac88e92d.js"
+    "static/js/main.69093ccd.js"
   ]
 }
